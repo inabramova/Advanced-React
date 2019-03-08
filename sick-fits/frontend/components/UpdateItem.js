@@ -26,7 +26,7 @@ const UPDATE_ITEM_MUTATION = gql`
         $description: String
         $price: Int
     ){
-        updateItem(  
+        updateItem(
             id:$id
             title : $title
             description : $description
@@ -75,35 +75,35 @@ export default class UpdateItem extends Component {
                             </label>
                             <label htmlFor="title" >
                                 Title
-                                <input type="text" 
-                                    id="title" 
-                                    name="title" 
-                                    placeholder="title" 
+                                <input type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder="title"
                                     defaultValue={data.item.title}
                                     onChange={this.handleChange}
                                     required/>
                             </label>
                             <label htmlFor="price" >
                                 Price
-                                <input type="number" 
-                                    id="price" 
-                                    name="price" 
-                                    placeholder="Price" 
+                                <input type="number"
+                                    id="price"
+                                    name="price"
+                                    placeholder="Price"
                                     defaultValue={data.item.price}
                                     onChange={this.handleChange}
                                     required/>
                             </label>
                             <label htmlFor="description" >
                                 Description
-                                <textarea type="text" 
-                                    id="description" 
-                                    name="description" 
-                                    placeholder="Enter a description" 
+                                <textarea type="text"
+                                    id="description"
+                                    name="description"
+                                    placeholder="Enter a description"
                                     defaultValue={data.item.description}
                                     onChange={this.handleChange}
                                     required/>
                             </label>
-                            <button type="submit">Sav{loading?'ing':'e'} changes</button>                          
+                            <button type="submit">Sav{loading?'ing':'e'} changes</button>
                         </fieldset>
                     </Form>
                     )}

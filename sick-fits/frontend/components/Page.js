@@ -11,6 +11,7 @@ const theme = {
   offwhite: '#EDEDED',
   maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0,0,0,0.09)',
+  mistyrose:'azure'
 };
 
 const StyledPage = styled.div`
@@ -22,7 +23,7 @@ const Inner = styled.div`
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
-  background: ${props => props.theme.red};
+  background: ${props => props.theme.mistyrose};
 `;
 
 injectGlobal`

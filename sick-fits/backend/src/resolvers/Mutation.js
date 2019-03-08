@@ -14,8 +14,9 @@ const Mutations = {
 
     async updateItem(parent, args, ctx, info){
         const updates = {...args};
+        //remove ID from the updates, ID can't be updated
         delete updates.id;
-        const item = await ctx.db.mutation.updateItem({ 
+        const item = await ctx.db.mutation.updateItem({
             data:updates,
             where:{id: args.id}
         },info);

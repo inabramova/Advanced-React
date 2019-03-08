@@ -37,7 +37,7 @@ class Items extends Component {
       <Center>
         <Pagination page={this.props.page} />
         <Query query={ALL_ITEMS_QUERY}
-                  variables={{
+                  variables= {{
                     skip: this.props.page * perPage - perPage,
                   }}
         >
