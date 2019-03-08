@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import {Query} from 'react-apollo';
+import React, { Component } from 'react';
+import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import Error from './ErrorMessage';
 import styled from 'styled-components';
 import Head from 'next/head';
-
+import Error from './ErrorMessage';
 
 const SINGLE_ITEM_QUERY = gql`
-  query SINGLE_ITEM_QUERY($id: ID!){
-    item(where: {id: $id}){
+  query SINGLE_ITEM_QUERY($id: ID!) {
+    item(where: { id: $id }) {
       id
       title
       description
@@ -36,33 +35,30 @@ const SingleItemStyles = styled.div`
   }
 `;
 
-
 class SingleItem extends Component {
   render() {
     return (
-        <Query
-            query={SINGLE_ITEM_QUERY}
-            variables={{id: this.props.id,}}>
-            {({error, loading, data})=> {
-                if (error) return <Error error={error}/>;
-                if (!data.item) return <p>No item found for {this.props.id}</p>;
-                if (loading) return <p>loading</p>;
-                const item = data.item;
-                return (
-                    <SingleItemStyles>
-                        <Head>
-                            <title>Sick Fits | {item.title}</title>
-                        </Head>
-                        <img src={item.largeImage} alt={item.title} />
-                        <div className="details">
-                            <h2>Viewing {item.title}</h2>
-                            <p>{item.description}</p>
-                        </div>
-                    </SingleItemStyles>
-                );
-            }}
+      <Query query={SINGLE_ITEM_QUERY} variables={{ id: this.props.id }}>
+        {({ error, loading, data }) => {
+          if (error) return <Error error={error} />;
+          if (!data.item) return <p>No item found for {this.props.id}</p>;
+          if (loading) return <p>loading</p>;
+          const { item } = data;
+          return (
+            <SingleItemStyles>
+              <Head>
+                <title>Sick Fits | {item.title}</title>
+              </Head>
+              <img src={item.largeImage} alt={item.title} />
+              <div className="details">
+                <h2>Viewing {item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+            </SingleItemStyles>
+          );
+        }}
       </Query>
-    )
+    );
   }
 }
 

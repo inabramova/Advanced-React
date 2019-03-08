@@ -3,27 +3,29 @@ import NavStyles from './styles/NavStyles';
 import User from './User';
 
 const Nav = () => (
-    <NavStyles>
-        <User>{({data:{me}})=>{
-            if (me) return <p>{me.name}</p>;
-            return null; }}</User>
+  <NavStyles>
+    <User>
+      {({ data: { me } }) => {
+        if (me) return <p>{me.name}</p>;
+        return null;
+      }}
+    </User>
     <Link href="/items">
-    <a>Items</a>
+      <a>Items</a>
     </Link>
     <Link href="/sell">
-    <a>Sell</a>
+      <a>Sell</a>
     </Link>
     <Link href="/signup">
-    <a>Signup</a>
+      <a>Signup</a>
     </Link>
     <Link href="/orders">
-    <a>Orders</a>
+      <a>Orders</a>
     </Link>
     <Link href="/me">
-    <a>Account</a>
+      <a>Account</a>
     </Link>
-    </NavStyles>
-
+  </NavStyles>
 );
 
 export default Nav;
