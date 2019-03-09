@@ -12,20 +12,17 @@ type User {
   name: String!
   email: String! @unique
   password: String!
-  resetToken:String
-  resetTokenExpiry:Float
+  resetToken: String
+  resetTokenExpiry: Float
   permissions: [Permission]
 }
 
-type Item{
-  id:ID! @unique
+type Item {
+  id: ID! @unique
   title: String!
   description: String!
   image: String
   largeImage: String
-  price:Int!
-  createdAt:DateTime!
-  updatedAt:DateTime!
-  #user:User!
-
+  price: Int!
+  user: User!
 }
