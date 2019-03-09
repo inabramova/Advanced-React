@@ -13,6 +13,7 @@ const NavStyles = styled.ul`
     align-items: center;
     position: relative;
     text-transform: uppercase;
+    color: ${props => props.theme.black};
     font-weight: 900;
     font-size: 1em;
     background: none;
@@ -51,9 +52,9 @@ const NavStyles = styled.ul`
       &:after {
         width: calc(100% - 60px);
       }
-    @media (max-width: 700px) {
+      @media (max-width: 700px) {
         width: calc(100% - 10px);
-    }
+      }
     }
   }
   @media (max-width: 1300px) {
