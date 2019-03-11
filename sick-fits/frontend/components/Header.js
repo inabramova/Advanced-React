@@ -1,13 +1,15 @@
-import Router from 'next/router';
-import NProgress from 'nprogress';
+
+
 import Link from 'next/link';
 import styled from 'styled-components';
+import NProgress from 'nprogress';
+import Router from 'next/router';
 import Nav from './Nav';
+import Cart from './Cart';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
 };
-
 Router.onRouteChangeComplete = () => {
   NProgress.done();
 };
@@ -53,6 +55,7 @@ const StyledHeader = styled.header`
     border-bottom: 1px solid ${props => props.theme.lightgrey};
   }
 `;
+
 const Header = () => (
   <StyledHeader>
     <div className="bar">
@@ -66,7 +69,8 @@ const Header = () => (
     <div className="sub-bar">
       <p>Search</p>
     </div>
-    <div>Cart</div>
+    <Cart />
   </StyledHeader>
 );
+
 export default Header;
